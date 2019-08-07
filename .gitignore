@@ -26,6 +26,7 @@ target
 overlays
 logs
 bin
+out
 
 # Sencha files
 bootstrap.*
