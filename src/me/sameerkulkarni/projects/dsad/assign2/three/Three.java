@@ -8,17 +8,17 @@ public class Three
 {
     static int getUnvisitedMinDistanceIndex(int distanceFromSrc[], boolean visited[])
     {
-        int min = Integer.MAX_VALUE;
-        int min_index = Integer.MIN_VALUE;
+        int minValue = Integer.MAX_VALUE;
+        int minIndex = Integer.MIN_VALUE;
         for (int i = 0; i < distanceFromSrc.length; i++)
         {
-            if (!visited[i] && distanceFromSrc[i] <= min)
+            if (!visited[i] && distanceFromSrc[i] <= minValue)
             {
-                min = distanceFromSrc[i];
-                min_index = i;
+                minValue = distanceFromSrc[i];
+                minIndex = i;
             }
         }
-        return min_index;
+        return minIndex;
     }
 
     static int dijkstra(int graph[][], int src, int des)
@@ -38,10 +38,13 @@ public class Three
             int x = getUnvisitedMinDistanceIndex(distanceFromSrc, visited);
             visited[x] = true;
             for (int y = 0; y < n; y++)
-                if (!visited[y] && graph[x][y] != -1 && distanceFromSrc[x] != Integer.MAX_VALUE && (distanceFromSrc[x] + graph[x][y]) < distanceFromSrc[y])
+            {
+                if (!visited[y] && graph[x][y] != -1 && distanceFromSrc[x] != Integer.MAX_VALUE
+                        && (distanceFromSrc[x] + graph[x][y]) < distanceFromSrc[y])
                 {
                     distanceFromSrc[y] = distanceFromSrc[x] + graph[x][y];
                 }
+            }
         }
         return distanceFromSrc[des];
     }
