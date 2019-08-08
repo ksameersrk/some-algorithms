@@ -1,4 +1,4 @@
-package me.sameerkulkarni.projects.dsad.assgin2.three;
+package me.sameerkulkarni.projects.dsad.assign2.three;
 
 import java.io.File;
 import java.io.FileNotFoundException;

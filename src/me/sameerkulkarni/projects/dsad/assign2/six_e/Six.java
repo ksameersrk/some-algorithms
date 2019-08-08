@@ -1,4 +1,4 @@
-package me.sameerkulkarni.projects.dsad.assgin2.six_e;
+package me.sameerkulkarni.projects.dsad.assign2.six_e;
 
 import java.util.Objects;
 import java.util.concurrent.RecursiveTask;

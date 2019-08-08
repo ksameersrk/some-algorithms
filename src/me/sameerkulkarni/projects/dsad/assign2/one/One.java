@@ -1,4 +1,4 @@
-package me.sameerkulkarni.projects.dsad.assgin2.one;
+package me.sameerkulkarni.projects.dsad.assign2.one;
 
 import java.util.ArrayList;
 import java.util.Comparator;
