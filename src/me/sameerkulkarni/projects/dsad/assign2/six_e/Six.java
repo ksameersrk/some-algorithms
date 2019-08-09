@@ -8,7 +8,7 @@ public class Six {
 
     public static void main(String[] args) {
         int[] arr = {1, 3, 1, 7};
-        System.out.println("Correct Sum : " + forkJoinPool.invoke(new SumMaxRecursiveTask(arr, 0)));
+        System.out.println("Total Sum of Max Sub-Array : " + forkJoinPool.invoke(new SumMaxRecursiveTask(arr, 0)));
     }
 }
 
@@ -34,7 +34,10 @@ class SumMaxRecursiveTask extends RecursiveTask<Integer> {
         int sum = 0;
         int max = Integer.MIN_VALUE;
         for (int j = low; j < high; j++) {
-            if (arr[j] > max) max = arr[j];
+            if (arr[j] > max){
+                max = arr[j];
+                print(arr, low, j, max);
+            }
             sum += max;
         }
         if (Objects.nonNull(next)) {
@@ -45,5 +48,14 @@ class SumMaxRecursiveTask extends RecursiveTask<Integer> {
             }
         }
         return sum;
+    }
+
+    static void print(int arr[], int low, int high, int max) {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("max = " + max + ", sub array = ");
+        for(int i=low; i<=high; i++){
+            buffer.append(arr[i] + " ");
+        }
+        System.out.println(buffer);
     }
 }
